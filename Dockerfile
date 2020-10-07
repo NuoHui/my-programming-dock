@@ -1,5 +1,5 @@
-# 选择node镜像、基础镜像要小
-FROM node:10-alpine
+# 选择node镜像
+FROM node:12.6.0-buster-slim
 
 # 安装nginx
 RUN apt-get update \
