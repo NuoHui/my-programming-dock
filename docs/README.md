@@ -1,1 +1,1 @@
-# Hello VuePress 1.0.4
+# Hello VuePress 1.0.8
