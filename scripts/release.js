@@ -37,7 +37,7 @@ const release = async () => {
     execSync(`standard-version -r ${release}`, {
       stdio: 'inherit'
     });
-    execSync(`git push`, {
+    execSync(`git push --follow-tags origin main`, {
       stdio: 'inherit'
     });
   }
