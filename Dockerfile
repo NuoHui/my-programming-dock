@@ -15,13 +15,12 @@ COPY . /app/
 EXPOSE 80
 
 # 1. 安装依赖
-# 2. 运行 npm run build
+# 2. 构建打包
 # 3. 把dist目录下文件拷贝到 nginx目录下
 # 4. 删除工作目录下的文件 减少镜像体积
-RUN rm -rf node_modules \
-    && npm install \
-    && npm run build \
-    && cp -r build/* /var/www/html \
+RUN npm install --registry=https://registry.npm.taobao.org \
+    && npm run docs:build \
+    && cp -r /docs/.vuepress/dist/* /var/www/html \
     && rm -rf /app
 
 # 启动nginx
