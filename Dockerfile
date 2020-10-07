@@ -1,5 +1,8 @@
-# 选择node镜像
-FROM node:12.6.0-buster-slim
+# 选择node镜像、基础镜像要小
+FROM node:10-alpine
+
+ENV PROJECT_ENV production
+ENV NODE_ENV production
 
 # 安装nginx
 RUN apt-get update \
@@ -8,19 +11,22 @@ RUN apt-get update \
 # 指定工作目录
 WORKDIR /app
 
+# 隔开写入镜像
+ADD package.json /app
+
+# 1. 安装依赖
+RUN npm install --production --registry=https://registry.npm.taobao.org
+
 # 把当前所有目录下文件拷贝到工作目录
 COPY . /app/
 
 # 运行时容器提供服务端口
 EXPOSE 80
 
-# 1. 安装依赖
-# 2. 运行 npm run build
-# 3. 把dist目录下文件拷贝到 nginx目录下
-# 4. 删除工作目录下的文件 减少镜像体积
-RUN rm -rf node_modules \
-    && npm install --registry=https://registry.npm.taobao.org \
-    && npm run docs:build \
+# 1. 打包
+# 2. 把dist目录下文件拷贝到 nginx目录下
+# 3. 删除工作目录下的文件 减少镜像体积
+RUN npm run docs:build \
     && cp -r docs/.vuepress/dist/* /var/www/html \
     && rm -rf /app
 
