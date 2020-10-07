@@ -20,7 +20,7 @@ EXPOSE 80
 # 4. 删除工作目录下的文件 减少镜像体积
 RUN npm install --registry=https://registry.npm.taobao.org \
     && npm run docs:build \
-    && cp -r /docs/.vuepress/dist/* /var/www/html \
+    && cp -r docs/.vuepress/dist/* /var/www/html \
     && rm -rf /app
 
 # 启动nginx
