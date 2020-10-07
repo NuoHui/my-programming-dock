@@ -1,13 +1,9 @@
 # 选择node镜像、基础镜像要小
 FROM node:10-alpine
 
-
 # 安装nginx
 RUN apt-get update \
     && apt-get install -y nginx
-
-ENV PROJECT_ENV production
-ENV NODE_ENV production
 
 # 指定工作目录
 WORKDIR /app
