@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/NuoHui/my-programming-dock/compare/v1.0.8...v1.0.9) (2020-10-07)
+
+
+### Features
+
+* test workflow ([a3878de](https://github.com/NuoHui/my-programming-dock/commit/a3878de68e085b4b9d743ef0a75310102fb4d41b))
+
 ### [1.0.8](https://github.com/NuoHui/my-programming-dock/compare/v1.0.7...v1.0.8) (2020-10-07)
 
 ### [1.0.7](https://github.com/NuoHui/my-programming-dock/compare/v1.0.6...v1.0.7) (2020-10-07)
