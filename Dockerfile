@@ -24,5 +24,6 @@ EXPOSE 80
 # 2. 把dist目录下文件拷贝到 nginx目录下
 RUN npm run docs:build \
     && cp -r docs/.vuepress/dist/* /var/www/html
+
 # 启动nginx
 CMD ["nginx", "-g", "daemon off;"]
