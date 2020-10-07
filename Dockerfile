@@ -22,10 +22,7 @@ EXPOSE 80
 
 # 1. 打包
 # 2. 把dist目录下文件拷贝到 nginx目录下
-# 3. 删除工作目录下的文件 减少镜像体积
 RUN npm run docs:build \
-    && cp -r docs/.vuepress/dist/* /var/www/html \
-    && rm -rf /app
-
+    && cp -r docs/.vuepress/dist/* /var/www/html
 # 启动nginx
 CMD ["nginx", "-g", "daemon off;"]
