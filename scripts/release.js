@@ -37,6 +37,9 @@ const release = async () => {
     execSync(`standard-version -r ${release}`, {
       stdio: 'inherit'
     });
+    execSync(`git push`, {
+      stdio: 'inherit'
+    });
   }
 };
 
